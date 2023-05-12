@@ -1,16 +1,16 @@
 import { SSTConfig } from "sst";
 import webStack from "./stacks/web";
-import authStack from "./stacks/auth";
+import webSocketStack from "./stacks/websocket";
 
 export default {
   config(_input) {
     return {
-      name: "FutureInCode",
+      name: "ApiGateway",
       region: "eu-west-2",
     };
   },
   stacks(app) {
     app.stack(webStack, { id: "Web" });
-    app.stack(authStack, { id: "Auth" });
+    app.stack(webSocketStack, { id: "WebSocket" });
   },
 } satisfies SSTConfig;
