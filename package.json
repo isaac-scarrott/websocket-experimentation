@@ -13,7 +13,6 @@
   },
   "dependencies": {
     "@aws-sdk/client-iot": "^3.329.0",
-    "@aws-sdk/client-iot-data-plane": "^3.329.0",
     "@types/node": "20.1.2",
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
