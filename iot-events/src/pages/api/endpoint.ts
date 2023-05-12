@@ -1,10 +1,17 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { iot, mqtt } from "aws-iot-device-sdk-v2";
 import { IoTClient, DescribeEndpointCommand } from "@aws-sdk/client-iot";
 
-async function handler(req: NextApiRequest, res: NextApiResponse) {
+type GetEndpointResponse = {
+  endpointAddress: string;
+};
+
+async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse<GetEndpointResponse>
+) {
   if (req.method !== "GET") {
-    res.status(405).json({ message: "Method Not Allowed" });
+    res.status(405);
+
     return;
   }
 
@@ -17,9 +24,11 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       endpointType: "iot:Data-ATS",
     })
   );
-  const url = result.endpointAddress!;
+  const endpointAddress = result.endpointAddress!;
 
-  res.status(200).json({ message: url });
+  res.status(200).json({ endpointAddress });
 }
 
 export default handler;
+
+export type { GetEndpointResponse };

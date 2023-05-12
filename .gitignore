@@ -35,6 +35,7 @@ yarn-error.log*
 next-env.d.ts
 
 # sst
+.next
 .open-next
 .sst
 sst-env.d.ts

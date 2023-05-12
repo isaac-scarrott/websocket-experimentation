@@ -65,11 +65,7 @@ export default function Home({ userUid }: { userUid: string }) {
   }, [lastMessage, form, userUid]);
 
   // Extracts the elementId and eventType from the topic and calls the appropriate pub/sub handler
-  function createMessageTopicHandler(
-    elementId: string,
-    eventType: string,
-    value: string
-  ) {
+  function publicTopic(elementId: string, eventType: string, value: string) {
     if (!["blur", "focus", "change"].includes(eventType)) {
       return;
     }
@@ -92,14 +88,14 @@ export default function Home({ userUid }: { userUid: string }) {
           {...form.register("name")}
           onBlur={(e) => {
             form.register("name").onBlur(e);
-            createMessageTopicHandler(e.target.id, e.type, e.target.value);
+            publicTopic(e.target.id, e.type, e.target.value);
           }}
           onFocus={(e) => {
-            createMessageTopicHandler(e.target.id, e.type, e.target.value);
+            publicTopic(e.target.id, e.type, e.target.value);
           }}
           onChange={(e) => {
             form.register("name").onChange(e);
-            createMessageTopicHandler(e.target.id, e.type, e.target.value);
+            publicTopic(e.target.id, e.type, e.target.value);
           }}
           style={{
             backgroundColor:
@@ -115,14 +111,14 @@ export default function Home({ userUid }: { userUid: string }) {
           {...form.register("email")}
           onBlur={(e) => {
             form.register("email").onBlur(e);
-            createMessageTopicHandler(e.target.id, e.type, e.target.value);
+            publicTopic(e.target.id, e.type, e.target.value);
           }}
           onFocus={(e) => {
-            createMessageTopicHandler(e.target.id, e.type, e.target.value);
+            publicTopic(e.target.id, e.type, e.target.value);
           }}
           onChange={(e) => {
             form.register("email").onChange(e);
-            createMessageTopicHandler(e.target.id, e.type, e.target.value);
+            publicTopic(e.target.id, e.type, e.target.value);
           }}
           style={{
             backgroundColor:
@@ -138,14 +134,14 @@ export default function Home({ userUid }: { userUid: string }) {
           {...form.register("message")}
           onBlur={(e) => {
             form.register("message").onBlur(e);
-            createMessageTopicHandler(e.target.id, e.type, e.target.value);
+            publicTopic(e.target.id, e.type, e.target.value);
           }}
           onFocus={(e) => {
-            createMessageTopicHandler(e.target.id, e.type, e.target.value);
+            publicTopic(e.target.id, e.type, e.target.value);
           }}
           onChange={(e) => {
             form.register("message").onChange(e);
-            createMessageTopicHandler(e.target.id, e.type, e.target.value);
+            publicTopic(e.target.id, e.type, e.target.value);
           }}
           style={{
             backgroundColor:

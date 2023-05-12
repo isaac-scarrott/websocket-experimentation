@@ -1,16 +1,20 @@
-import { NextjsSite, StackContext } from "sst/constructs";
+import { NextjsSite, StackContext, use } from "sst/constructs";
+
+import authStack from "./auth";
 
 function webStack(ctx: StackContext) {
-  console.log(ctx.app.stageName);
+  const authorizer = use(authStack);
+
   const site = new NextjsSite(ctx.stack, "site", {
     permissions: ["iot:DescribeEndpoint"],
     environment: {
-      NEXT_PUBLIC_BUCKET_NAME: ctx.stack.stage,
+      NEXT_PUBLIC_AUTHORIZER_NAME: authorizer.authorizerName as string,
     },
   });
 
   ctx.stack.addOutputs({
     SiteUrl: site.url,
+    AuthorizerName: authorizer.authorizerName as string,
   });
 }
 

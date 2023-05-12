@@ -10,7 +10,7 @@ export default {
     };
   },
   stacks(app) {
-    app.stack(webStack, { id: "Web" });
     app.stack(authStack, { id: "Auth" });
+    app.stack(webStack, { id: "Web" });
   },
 } satisfies SSTConfig;

@@ -23,6 +23,8 @@ function authStack(ctx: StackContext) {
     sourceArn: authorizer.attrArn,
     action: "lambda:InvokeFunction",
   });
+
+  return authorizer;
 }
 
 export default authStack;
