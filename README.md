@@ -2,4 +2,4 @@ A very basic realtime collaboration UI which compares using API Gateway with web
 
 TODO:
 
-[ ] Fine grained permissions for IoT events using IAM
+[] Fine grained permissions for IoT events using IAM
