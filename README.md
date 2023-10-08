@@ -1,4 +1,4 @@
-A very basic realtime collaboration UI which compares using API Gateway with websockets and repurposing (sort of) AWS IoT events to broadcast events to clients via MQTT and websockets.
+A very basic realtime collaboration UI which compares using API Gateway with websockets and repurposing AWS IoT events to broadcast events to clients via MQTT and websockets.
 
 TODO:
 
